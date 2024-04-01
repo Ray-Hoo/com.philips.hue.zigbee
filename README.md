@@ -4,7 +4,12 @@ Philips Hue support without Bridge for Homey
 
 ## Release notes:
 
-### v.2.0.51
+### v.2.0.53
+Added support for:
+
+- Fugato 4-Spotlight
+
+### v.2.0.52
 Added support for:
 
 - Tuar Outdoor Wall Light
