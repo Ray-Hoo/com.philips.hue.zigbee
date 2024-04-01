@@ -9,6 +9,11 @@ Cluster.addCluster(HueSpecificOccupancySensingCluster);
 Cluster.addCluster(HueSpecificBasicCluster);
 
 class OccupancySensor extends ZigBeeDevice {
+
+  constructor(...args) {
+		super(...args);
+		this.isSuppressed = false;
+	}
 	
 	async onNodeInit({ zclNode }) {
 
@@ -84,10 +89,20 @@ class OccupancySensor extends ZigBeeDevice {
     
   }
   
+  suppressSensor(args, state) {
+    this.isSuppressed = true;
+    this.suppressTimeout = this.homey.setTimeout(() => {
+      this.isSuppressed = false;
+    }, args.duration * 1000);
+  }
+
   onOccupancyAttributeReport(occupancyStatus) {
     const parsedOccupancyStatus = Object.values(occupancyStatus);
     this.log("Occupancy status:", parsedOccupancyStatus[2]);
     if (parsedOccupancyStatus[2] == true) {
+      if (this.isSuppressed) {
+        return;
+      }
       this.setCapabilityValue('alarm_motion', true)
       .catch(err => this.error('Error: could not set alarm_motion capability value', err));
     } else {

@@ -5,6 +5,26 @@ Philips Hue support without Bridge for Homey
 ## Release notes:
 
 ### v.2.0.51
+Added support for:
+
+- Tuar Outdoor Wall Light
+- Econic Outdoor Pedestal Light
+- Adore Bathroom mirror
+- Wellner
+- Enrave
+- Wellness
+- Go portable table lamp
+- Filament Bulb ST64 White Ambiance
+- New version of Bulb E27 White and Color Ambiance BT
+- New version of Filament Bulb Candle E14
+
+Added features:
+
+- Suppression functionality to Occupancy Sensors
+- Added Condition flowcard: Luminance is above / below
+- Added Condition flowcard: Temperature is above / below
+
+### v.2.0.51
 Fix:
 
 - Adds measure_battery capability if missing / RDM001 & RDM002

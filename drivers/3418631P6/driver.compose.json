@@ -1,12 +1,12 @@
 {
   "name": {
-    "en": "Filament Bulb Candle E14"
+    "en": "Adore Bathroom mirror"
   },
-  "$extends": ["light_white"],
+  "$extends": ["light_white_ambiance"],
   "energy": {
     "approximation": {
-      "usageOn": 4.5,
-      "usageOff": 0.5
+      "usageOn": 40,
+      "usageOff": 0.2
     }
   },
   "zigbee": {
@@ -15,8 +15,7 @@
       "Signify Netherlands B.V."
     ],
     "productId": [
-      "LWE004",
-      "LTE005"
+      "3418631P6"
     ],
     "endpoints": {
       "11": {
@@ -25,7 +24,8 @@
           3,
           4,
           6,
-          8
+          8,
+          768
         ]
       }
     },

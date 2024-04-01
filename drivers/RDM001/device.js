@@ -15,11 +15,9 @@ class DualWallSwitch extends ZigBeeDevice {
     this._deviceMode = -1;
     this._wakeupaction = false;
 
-    if ( this.getData().subDeviceId === "secondInput" )  {
-      this.driver.subdevice = this;
-    } else {
-      this.driver.deviceMode = this.getSettings()['mode'];
-      this._setNewConfig(this.driver.deviceMode);
+    if (!this.isSubDevice()) {
+      this.deviceMode = this.getSettings()['mode'];
+      this._setNewConfig(this.deviceMode);
 
       if (!this.hasCapability('measure_battery')) {
         await this.addCapability('measure_battery');
@@ -73,7 +71,7 @@ class DualWallSwitch extends ZigBeeDevice {
   async onSettings({ oldSettings, newSettings, changedKeys }) {
     if (changedKeys.includes('mode')) {
       this._setNewConfig(newSettings['mode']);
-      this.driver.deviceMode = newSettings['mode'];
+      this.deviceMode = newSettings['mode'];
     }
     return super.onSettings({oldSettings, newSettings, changedKeys});
   }
@@ -124,17 +122,16 @@ class DualWallSwitch extends ZigBeeDevice {
     }
     const buttonValue = frame.readUInt8(5);
     const actionValue = frame.readUInt8(9);
-    const targetdevice = [this,this.driver.subdevice][buttonValue-1];
     const action = ['Press', 'Hold', 'Release', 'LongRelease'][actionValue] || 'Unknown';
 
-    if ( ( this.driver.deviceMode === "singlerocker" ) ||  ( this.driver.deviceMode === "dualrocker" ) ) {
+    if ( ( this.deviceMode === "singlerocker" ) ||  ( this.deviceMode === "dualrocker" ) ) {
       if ( actionValue == 0x02 ) {
-        return this.TriggerDevice.trigger(targetdevice, {}, {})
+        return this.TriggerDevice.trigger(this, {}, {})
         .then(() => this.log(`triggered RDM001_rockerswitch`))
         .catch(err => this.error('Error triggering RDM001_rockerswitch', err));
       } 
     } else {
-      return this.TriggerDevice.trigger(targetdevice, {}, {action: `${action}`})
+      return this.TriggerDevice.trigger(this, {}, {action: `${action}`})
       .then(() => this.log(`triggered RDM001_pushbuttons, action=${action}`))
       .catch(err => this.error('Error triggering RDM001_pushbuttons', err));
     }
@@ -144,6 +141,8 @@ class DualWallSwitch extends ZigBeeDevice {
 }
 
 module.exports = DualWallSwitch;
+
+
 
 /* "ids": {
   "modelId": "RDM001",

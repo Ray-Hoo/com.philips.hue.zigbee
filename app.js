@@ -31,6 +31,21 @@ class PhilipsHueZigbeeApp extends Homey.App {
         }
     });
 
+    this.homey.flow.getActionCard('suppress_sensor')
+    .registerRunListener((args, state) => {
+        return args.device.suppressSensor(args, state);
+    });
+
+    this.homey.flow.getConditionCard('temperature_above')
+    .registerRunListener((args, state) => {
+    return args.device.getCapabilityValue('measure_temperature') > args.temperature;
+    });
+
+    this.homey.flow.getConditionCard('luminance_above')
+    .registerRunListener((args, state) => {
+    return args.device.getCapabilityValue('measure_luminance') > args.luminance;
+    });
+
     // Register listeners for Dynamic Scenes
 /*     this.startDynamicScenesAction = this.homey.flow.getActionCard('DynamicScenes');
     this.startDynamicScenesAction.registerRunListener(async (args, state) => {

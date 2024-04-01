@@ -1,12 +1,12 @@
 {
   "name": {
-    "en": "Filament Bulb Candle E14"
+    "en": "Tuar Outdoor Wall Light"
   },
-  "$extends": ["light_white"],
+  "$extends": ["light_white_ambiance"],
   "energy": {
     "approximation": {
-      "usageOn": 4.5,
-      "usageOff": 0.5
+      "usageOn": 9.5,
+      "usageOff": 0.2
     }
   },
   "zigbee": {
@@ -15,8 +15,7 @@
       "Signify Netherlands B.V."
     ],
     "productId": [
-      "LWE004",
-      "LTE005"
+      "1740447P0"
     ],
     "endpoints": {
       "11": {
@@ -25,13 +24,14 @@
           3,
           4,
           6,
-          8
+          8,
+          768
         ]
       }
     },
     "learnmode": {
       "instruction": {
-        "en": "Plug in the bulb, or toggle the bulb to start pairing.\n\nIf pairing does not automatically start you probably need to reset the bulb with a remote or a philips hue bridge."
+        "en": "Plug in the unit, or toggle the power on the unit to start pairing.\n\nIf pairing does not automatically start you probably need to reset the unit with a remote or a philips hue bridge."
       }
     }
   }
