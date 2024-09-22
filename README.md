@@ -4,6 +4,11 @@ Philips Hue support without Bridge for Homey
 
 ## Release notes:
 
+### v.2.0.54
+Added support for:
+
+- Akari Downlight
+
 ### v.2.0.53
 Added support for:
 

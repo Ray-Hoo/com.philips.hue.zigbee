@@ -9,7 +9,7 @@
     "en": "Smart light — your way."
   },
   "brandColor": "#035ED8",
-  "version": "2.0.53",
+  "version": "2.0.54",
   "compatibility": ">=5.0.0",
   "category": [
     "lights"
@@ -14894,8 +14894,7 @@
       "capabilities": [
         "onoff",
         "dim",
-        "light_temperature",
-        "light_mode"
+        "light_temperature"
       ],
       "capabilitiesOptions": {
         "dim": {
