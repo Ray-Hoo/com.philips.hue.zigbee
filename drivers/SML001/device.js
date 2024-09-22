@@ -198,7 +198,7 @@ class MotionSensor extends ZigBeeDevice {
 		// motion sensitivity setting changed
 		if (changedKeys.includes('motion_sensitivity')) {
       try {
-        const motionsensitivity = await this.zclNode.endpoints[2].clusters.occupancySensing.readAttributes('sensitivity');
+        const motionsensitivity = await this.zclNode.endpoints[2].clusters.occupancySensing.readAttributes(['sensitivity']);
         await this.zclNode.endpoints[2].clusters.occupancySensing.writeAttributes({sensitivity: newSettings.motion_sensitivity});
         this.log("Motion Sensitivity changed to: ", newSettings.motion_sensitivity);
       } catch (error) {

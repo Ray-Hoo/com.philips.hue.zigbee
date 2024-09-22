@@ -81,7 +81,7 @@ class OccupancySensor extends ZigBeeDevice {
 		zclNode.endpoints[2].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
     .on('attr.batteryPercentageRemaining', this.onBatteryPercentageRemainingAttributeReport.bind(this));
 
-    const batteryStatus = await this.zclNode.endpoints[2].clusters.powerConfiguration.readAttributes('batteryPercentageRemaining');
+    const batteryStatus = await this.zclNode.endpoints[2].clusters.powerConfiguration.readAttributes(['batteryPercentageRemaining']);
     const batteryThreshold = this.getSetting('batteryThreshold') || 20;
     this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", batteryStatus.batteryPercentageRemaining/2);
     this.setCapabilityValue('measure_battery', batteryStatus.batteryPercentageRemaining/2);
@@ -205,8 +205,8 @@ class OccupancySensor extends ZigBeeDevice {
     const ledIndicator = this.getStoreValue('ledIndicator');
     if (ledIndicator !== null) {
       try {
-        const ledoccupancystatus =  await this.zclNode.endpoints[2].clusters.occupancySensingCluster.readAttributes('ledIndication');
-        const ledbasicstatus = await this.zclNode.endpoints[2].clusters.basic.readAttributes('ledIndication');
+        const ledoccupancystatus = await this.zclNode.endpoints[2].clusters.occupancySensingCluster.readAttributes(['ledIndication']);
+        const ledbasicstatus = await this.zclNode.endpoints[2].clusters.basic.readAttributes(['ledIndication']);
         await this.zclNode.endpoints[2].clusters.occupancySensingCluster.writeAttributes({ledIndication: ledIndicator});
         await this.zclNode.endpoints[2].clusters.basic.writeAttributes({ledIndication: ledIndicator});
         this.log("Setting LED indicator status to: ", ledIndicator);

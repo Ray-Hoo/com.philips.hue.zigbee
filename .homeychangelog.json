@@ -145,5 +145,8 @@
   },
   "2.0.53": {
     "en": "Added Fugato 4 Spotlight."
+  },
+  "2.1.0": {
+    "en": "Updated Homey Zigbee modules and added Contact Sensor."
   }
 }

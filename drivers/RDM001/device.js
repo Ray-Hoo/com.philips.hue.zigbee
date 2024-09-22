@@ -4,7 +4,7 @@ const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { debug, Cluster, CLUSTER } = require('zigbee-clusters');
 const HueSpecificBasicCluster = require('../../lib/HueSpecificBasicCluster');
 
-//debug(true);
+debug(true);
 Cluster.addCluster(HueSpecificBasicCluster);
 
 class DualWallSwitch extends ZigBeeDevice {

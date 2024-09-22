@@ -1,8 +1,11 @@
 {
+  "id": "DualWallSwitch",
   "name": {
     "en": "Hue Wall Switch Module"
   },
   "class": "remote",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
   "icon": "{{driverAssetsPath}}/icon.svg",
   "images": {
     "large": "{{driverAssetsPath}}/images/large.png",
@@ -33,7 +36,7 @@
     },
     "devices": {
       "secondInput": {
-        "class": "button",
+        "class": "remote",
         "capabilities": [],
         "name": { "en": "Hue Wall Switch Module, Second Input" },
         "settings": []
