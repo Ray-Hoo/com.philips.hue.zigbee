@@ -148,5 +148,8 @@
   },
   "2.0.54": {
     "en": "Added Akari Downlight."
+  },
+  "2.1.0": {
+    "en": "Updated Homey Zigbee modules and added Contact Sensor."
   }
 }
