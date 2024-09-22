@@ -2,7 +2,7 @@
   "name": {
     "en": "Garnea Downlight"
   },
-  "$extends": ["light_white_ambiance"],
+  "$extends": ["light_white_temperature"],
   "energy": {
     "approximation": {
       "usageOn": 7,
