@@ -9871,6 +9871,157 @@
     },
     {
       "class": "light",
+      "icon": "/drivers/LCD003/assets/icon.svg",
+      "images": {
+        "large": "/drivers/LCD003/assets/images/large.png",
+        "small": "/drivers/LCD003/assets/images/small.png"
+      },
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation",
+        "light_temperature",
+        "light_mode"
+      ],
+      "capabilitiesOptions": {
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "light_hue": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "light_saturation": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "light_temperature": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "name": {
+        "en": "Akari Downlight"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 8.5,
+          "usageOff": 1
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "Philips",
+          "Signify Netherlands B.V."
+        ],
+        "productId": [
+          "LCD003"
+        ],
+        "endpoints": {
+          "11": {
+            "clusters": [
+              0,
+              3,
+              4,
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Plug in the lamp, or toggle the lamp to start pairing.\n\nIf pairing does not automatically start, try turning the lamp on and off 6 times."
+          }
+        }
+      },
+      "id": "LCD003",
+      "settings": [
+        {
+          "id": "light_temp_powerOnCtrl",
+          "type": "group",
+          "label": {
+            "en": "Behavior after power loss"
+          },
+          "children": [
+            {
+              "id": "powerOnCtrl_dimvalue",
+              "type": "number",
+              "label": {
+                "en": "Default brightness"
+              },
+              "value": 255,
+              "min": 0,
+              "max": 255,
+              "units": {
+                "en": "steps"
+              },
+              "hint": {
+                "en": "(0-255). The device must support this feature. (Some device need a firmware update and some does not support it at all)."
+              }
+            },
+            {
+              "id": "powerOnCtrl_colorvalue",
+              "type": "number",
+              "label": {
+                "en": "Default light temperature on Power On"
+              },
+              "value": 366,
+              "min": 153,
+              "max": 500,
+              "units": {
+                "en": "Mireds"
+              },
+              "hint": {
+                "en": "(153-500). The device must support this feature. (Some device need a firmware update and some does not support it at all)."
+              }
+            },
+            {
+              "id": "powerOnCtrl_state",
+              "type": "radio",
+              "label": {
+                "en": "Behavior when power is restored"
+              },
+              "value": "on",
+              "hint": {
+                "en": "The device must support this feature. (Some device need a firmware update and some does not support it at all)."
+              },
+              "values": [
+                {
+                  "id": "on",
+                  "label": {
+                    "en": "On with default brightness"
+                  }
+                },
+                {
+                  "id": "off",
+                  "label": {
+                    "en": "Off"
+                  }
+                },
+                {
+                  "id": "recover",
+                  "label": {
+                    "en": "Restore last state and brightness"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "light",
       "icon": "/drivers/LCE002/assets/icon.svg",
       "images": {
         "large": "/drivers/LCE002/assets/images/large.png",
@@ -14743,8 +14894,7 @@
       "capabilities": [
         "onoff",
         "dim",
-        "light_temperature",
-        "light_mode"
+        "light_temperature"
       ],
       "capabilitiesOptions": {
         "dim": {

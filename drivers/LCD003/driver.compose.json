@@ -1,11 +1,11 @@
 {
   "name": {
-    "en": "Garnea Downlight"
+    "en": "Akari Downlight"
   },
-  "$extends": ["light_white_temperature"],
+  "$extends": ["light_color_ambiance"],
   "energy": {
     "approximation": {
-      "usageOn": 7,
+      "usageOn": 8.5,
       "usageOff": 1
     }
   },
@@ -15,7 +15,7 @@
       "Signify Netherlands B.V."
     ],
     "productId": [
-      "LTD011"
+      "LCD003"
     ],
     "endpoints": {
       "11": {
